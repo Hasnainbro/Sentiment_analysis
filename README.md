@@ -39,9 +39,9 @@ Make sure you have Python installed on your system. Install NLTK library by runn
   ```
 2. Run the Script:
 
-   ```bash
+  ```bash
     python sentiment_analysis.py
-    ```
+  ```
 
 ### Input Comments
 
