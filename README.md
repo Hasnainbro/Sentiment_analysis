@@ -17,8 +17,8 @@ Sentiment analysis is the process of determining the emotional tone behind a pie
 1. Clone the Repository:
 
   ```bash
-    git clone https://github.com/yourusername/sentiment-analysis-tool.git
-    cd sentiment-analysis-tool
+    git clone https://github.com/Hasnainbro/Sentiment-analysis.git
+    cd sentiment-analysis
   ```
 
 2. Install Dependencies:
