@@ -1,7 +1,5 @@
-from flask import Flask, render_template, request
+import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
-
-app = Flask(__name__)
 
 def perform_sentiment_analysis(text):
     sid = SentimentIntensityAnalyzer()
@@ -15,20 +13,33 @@ def perform_sentiment_analysis(text):
     else:
         return 'Neutral'
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+def main():
+    print("Welcome to Sentiment Analysis Tool!")
+    print("Please enter the comments you want to analyze (press Enter after each comment, or leave blank to exit):")
 
-@app.route('/analyze', methods=['POST'])
-def analyze():
-    if request.method == 'POST':
-        comments = request.form.getlist('comments')
-        sentiments = [perform_sentiment_analysis(comment) for comment in comments]
-        positive_count = sentiments.count('Positive')
-        negative_count = sentiments.count('Negative')
-        neutral_count = sentiments.count('Neutral')
-        total_comments = len(comments)
-        return render_template('results.html', total_comments=total_comments, positive_count=positive_count, negative_count=negative_count, neutral_count=neutral_count)
+    comments = []
+    while True:
+        user_input = input("> ")
+        if not user_input:
+            print("Analyzing comments...")
+            break
 
-if __name__ == '__main__':
-    app.run(debug=True)
+        comments.append(user_input)
+
+    sentiments = []
+    for comment in comments:
+        sentiment = perform_sentiment_analysis(comment)
+        sentiments.append(sentiment)
+
+    positive_count = sentiments.count('Positive')
+    negative_count = sentiments.count('Negative')
+    neutral_count = sentiments.count('Neutral')
+
+    print("\nSentiment Analysis Results:")
+    print(f"Total Comments: {len(comments)}")
+    print(f"Positive Comments: {positive_count}")
+    print(f"Negative Comments: {negative_count}")
+    print(f"Neutral Comments: {neutral_count}")
+
+if __name__ == "__main__":
+    main()
