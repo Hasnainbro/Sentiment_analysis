@@ -53,3 +53,10 @@ Make sure you have Python installed on your system. Install NLTK library by runn
 
 The script will output the total number of comments analyzed and the distribution of sentiments (Positive, Negative, Neutral).
 
+## Author
+
+- [Hasnainkh](https://github.com/Hasnainbro) - Developer
+
+## License
+
+This project is unlicensed and is free to use by anyone for any purpose.
